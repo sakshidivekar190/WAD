@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>
+            Registration form
+        </title>
+        <style>
+            .container{
+                background-color:lightblue;
+                color:black;
+                font-family:Arial;
+                align-items:center;
+                border-style:solid;
+                border-radius:20px;
+                border-color:black;
+               text-align:center;   
+                margin:60px;
+                padding:20px;
+                height:100vh;
+            }
+            .button{
+                background-color: black;
+                color:white;
+                border-radius:20px;
+                padding: 15px;
+            }
+        </style>
+
+        <script>
+            function validate(){
+
+                var name = document.getElementById("name").value;
+                var lname = document.getElementById("lname").value;
+                var email = document.getElementById("email").value;
+                var password = document.getElementById("password").value;
+                var address = document.getElementById("address").value;
+                var mobile=document.getElementById("mobile").value;
+
+                if(name.lenght<6){
+                    alert("Name must be at least 6 characters long");
+                    return false;
+                }
+                 if(lname==""){
+                    alert("Last  Name must be specified");
+                    return false;
+                }
+                if(email.indexOf("@") == -1 || email.indexOf(".") == -1){
+                    alert("Invalid Email");
+                    return false;
+                }
+                if(address==""){
+                    alert("Address must be specified");
+                    return false;
+                }
+                if(mobile.length != 10 || isNaN(mobile)){
+                    alert("Invalid Mobile Number");
+                    return false;
+                }
+
+                
+                alert("Form submitted successfully");
+                return true;
+            }
+        </script>
+</head>
+<body>
+    <div class="container">
+    <h1>Registration From</h1>
+    <form onsubmit="return validate()">
+        Name:<input type ="text" id = "name" placeholder="Enter name"><br><br>
+        Last Name:<input type="text" id = "lname" placeholder="Enter Last Name"><br><br>
+        Email:<input type ="email" id = "email" placeholder="Enter Email"><br><br>
+        Password:<input type="password" id = "password" placeholder="Enter Password"><br><br>
+        Mobile:
+        <select>
+            <option value="+91">+91</option>
+            <option value="+1">+1</option>
+            <option value="+44">+44</option>
+        </select><input type="text" id = "mobile" placeholder="Enter Mobile"><br><br>
+        Address:<input type="text" id = "address" placeholder="Enter Address"><br><br>
+        Gender:<input type="radio"> Male
+        <input type="radio"> Female<br><br>
+        Langusges Known:<input type="checkbox"> English<input type="checkbox"> Hindi<input type="checkbox"> Spanish<br><br> 
+        <input type ="submit" value="Click to Sumbit" class="button">
+
+    </form>
+    </div>
+
+</body>
+</html>
